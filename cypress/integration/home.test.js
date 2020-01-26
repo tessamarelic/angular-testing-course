@@ -29,7 +29,7 @@ describe('Home Page', () => {
 
         cy.get('.mat-tab-label').should("have.length", 2);
 
-        cy.get('.mat-tab-label').last().click();
+        cy.get('.mat-tab-label').first().click();
 
         cy.get('.mat-tab-body-active .mat-card-title').its('length').should('be.gt', 1);
 
