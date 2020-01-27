@@ -47,7 +47,6 @@ describe('Home Page', () => {
   });
 
   it('should navigate to /courses', () => {
-
     cy.fixture('testing-course.json').as("testingCourseJSON")
     cy.route('/api/courses/12', "@testingCourseJSON").as("course");
     cy.get('.mat-tab-label').should("have.length", 2);
@@ -57,9 +56,13 @@ describe('Home Page', () => {
     const button = cy.get('.mat-card-actions').first();
     button.click();
 
+
+
     cy.fixture('testing-lessons-page-1.json').as("testingLessons1CourseJSON")
     cy.route('/api/lessons?courseId=12&filter=&sortOrder=asc&pageNumber=0&pageSize=3', "@testingLessons1CourseJSON").as("dataSource");
-    const table = cy.get('.mat-row').should("have.length", 3);
+    // cy.wait('@dataSource');
+    // const table = cy.get('.mat-row').should("have.length", 3);
+
   });
 
 
